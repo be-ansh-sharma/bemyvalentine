@@ -116,15 +116,17 @@ export default function Home() {
 
           <p className='valentine-subtitle'>
             {noCount === 0 && 'Please say yes! 🥺💕'}
-            {noCount === 1 && "Nikki, you can't escape this! 😄"}
-            {noCount === 2 && 'The button is running away! 😂'}
-            {noCount === 3 && 'Catch it if you can! 🏃‍♀️💨'}
-            {noCount === 4 && 'Still trying? You know you want to say yes! 🥺'}
-            {noCount === 5 && "Nikki, my heart can't take this! 💔"}
-            {noCount > 5 &&
-              noCount <= 8 &&
-              "Just say yes already! I promise it'll be worth it! 💕"}
-            {noCount > 8 && "You're making me cry Nikki! 😭💕 Please say yes!"}
+            {noCount === 1 && 'Are you really gonna say no? 😢'}
+            {noCount === 2 && 'Nikki please! I love you so much! 💕'}
+            {noCount === 3 && 'You know you want to say yes! 🥺'}
+            {noCount === 4 && 'Come on Nikki, my heart is breaking! 💔'}
+            {noCount === 5 && "I'm literally begging you! 🥹"}
+            {noCount === 6 && 'Just click Yes already! 😭💕'}
+            {noCount === 7 && 'This is torture Nikki! 😢'}
+            {noCount === 8 && "I promise I'll make you so happy! 💖"}
+            {noCount === 9 && 'One little click on Yes? Please? 🥺'}
+            {noCount === 10 && 'NIKKI BABY PLEASE! 😭💕'}
+            {noCount > 10 && "I'm not giving up until you say yes! 💕💕💕"}
           </p>
 
           <div className='buttons-container'>
@@ -134,6 +136,9 @@ export default function Home() {
               style={{
                 fontSize: `${getYesButtonSize()}px`,
                 padding: `${10 + noCount * 2}px ${30 + noCount * 5}px`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               Yes! 💖

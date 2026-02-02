@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #ffeef8;
   --foreground: #171717;
 }
 
@@ -12,15 +12,402 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: linear-gradient(135deg, #ffeef8 0%, #ffe4f3 25%, #ffd6eb 50%, #ffc9e8 75%, #ffb8e0 100%);
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Mobile optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Valentine Styles */
+.valentine-container {
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffeef8 0%, #ffe4f3 25%, #ffd6eb 50%, #ffc9e8 75%, #ffb8e0 100%);
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hearts-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  animation: float ease-in-out infinite, sway 3s ease-in-out infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(15deg);
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+.content-wrapper {
+  text-align: center;
+  z-index: 10;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease-in;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sticker-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticker-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.sticker-image.celebration {
+  width: 250px;
+  height: 250px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.valentine-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff1493;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.valentine-title.success {
+  font-size: 56px;
+  animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.valentine-subtitle {
+  font-size: 18px;
+  color: #ff69b4;
+  margin-bottom: 40px;
+  min-height: 60px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.valentine-message {
+  font-size: 24px;
+  color: #ff1493;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.celebration-text {
+  font-size: 28px;
+  color: #ff69b4;
+  font-weight: bold;
+  animation: rainbow 3s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+.valentine-date {
+  font-size: 20px;
+  color: #ff1493;
+  margin-top: 10px;
+  font-style: italic;
+  animation: fadeIn 1s ease-in 0.5s both;
+}
+
+@keyframes rainbow {
+  0%, 100% {
+    color: #ff69b4;
+  }
+  33% {
+    color: #ff1493;
+  }
+  66% {
+    color: #ff85c1;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  position: relative;
+  min-height: 80px;
+}
+
+.yes-button {
+  padding: 20px 50px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  animation: glow 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.yes-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.yes-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.yes-button:hover {
+  transform: scale(1.15) rotate(-2deg);
+  box-shadow: 0 12px 40px rgba(255, 105, 180, 0.8);
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(255, 105, 180, 0.8);
+  }
+}
+
+.no-button {
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #ff69b4;
+  border-radius: 50px;
+  background: white;
+  color: #ff69b4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+}
+
+.no-button:hover {
+  transform: scale(1.05);
+  background: #fff5fa;
+}
+
+.success-animation {
+  animation: celebrate 0.8s ease-out;
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .valentine-container {
+    padding: 15px;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hearts-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content-wrapper {
+    padding: 25px 20px;
+    margin: 0;
+    border-radius: 20px;
+    width: calc(100% - 30px);
+    max-width: 100%;
+  }
+
+  .valentine-title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  
+  .sticker-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sticker-image.celebration {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .buttons-container {
+    flex-direction: column;
+    gap: 15px;
+    min-height: auto;
+  }
+  
+  .content-wrapper {
+    padding: 30px 20px;
+    margin: 0;
+    border-radius: 20px;
+  }
+
+  .yes-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .no-button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .valentine-subtitle {
+    font-size: 16px;
+    min-height: 50px;
+  }
+
+  .valentine-message {
+    font-size: 20px;
+  }
+
+  .celebration-text {
+    font-size: 24px;
+  }
+
+  .valentine-date {
+    font-size: 18px;
+  }
+
+  .heart {
+    opacity: 0.3;
+  }
 }
